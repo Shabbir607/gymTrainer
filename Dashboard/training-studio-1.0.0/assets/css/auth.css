@@ -1,0 +1,31 @@
+.custom-input:focus {
+    border-color: #dc3545;
+    box-shadow: none;
+}
+.form-container {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+    background-color: #343a40;
+    color: white;
+    font-size: 1.5rem;
+}
+.btn-custom {
+    background-color: #E8563A;
+    border: none;
+}
+.btn-custom:hover {
+    background-color: #EA7259;
+}
+#bg-video {
+    min-width: 100%;
+    min-height: 50vh;
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
