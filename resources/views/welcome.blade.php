@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="/assets/css/templatemo-training-studio.css">
+    <link rel="stylesheet" href="/assets/css/plans.css">
 
 </head>
 
@@ -48,35 +49,73 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="#features">About</a></li>
+                        <li class="scroll-to-section"><a href="#features">Plans</a></li>
                         <li class="scroll-to-section"><a href="#our-classes">Classes</a></li>
                         <li class="scroll-to-section"><a href="#schedule">Schedules</a></li>
                         <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
                         @if (auth()->check())
-                            <li class="">
-                                <a href="{{ route('profile.edit') }}" class="profile">
-                                    <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
-                                </a>
-                            </li>
-
-                            @switch(auth()->user()->role_id)
+                           @php 
+                           $role_id = auth()->user()->role_id;
+                           @endphp
+                            @switch($role_id)
                                 @case(1)
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
                                     <li class="main-button">
                                         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
                                     </li>
-                                    @break
-                                @case(2)
-                                    <!-- No additional buttons for role_id 2 -->
-                                    @break
-                                @case(3)
                                     <li class="main-button">
-                                        <a href="{{ route('trainer.dashboard') }}">Dashboard</a>
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                     </li>
-                                    @break
+                                @break
+                                @case(2)
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @break
+                                @case(3)
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ url('class') }}">Dashboard</a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @break
                             @endswitch
                         @else
                             <li class="main-button">
-                                <a href="{{ route('login') }}">Sign Up</a>
+                                <a href="{{ route('login') }}">Log In</a>
                             </li>
                         @endif
 
@@ -116,83 +155,110 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Choose <em>Program</em></h2>
+                    <h2>Choose <em>Membership</em> Plans</h2>
                     <img src="assets/images/line-dec.png" alt="waves">
-                    <p>Training Studio is free CSS template for gyms and fitness centers. You are allowed to use this layout for your business website.</p>
+                    <p>Flexible plans to fit your fitness goals.</p>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <ul class="features-items">
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="First One">
-                        </div>
-                        <div class="right-content">
-                            <h4>Basic Fitness</h4>
-                            <p>Please do not re-distribute this template ZIP file on any template collection website. This is not allowed.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="second one">
-                        </div>
-                        <div class="right-content">
-                            <h4>New Gym Training</h4>
-                            <p>If you wish to support TemplateMo website via PayPal, please feel free to contact us. We appreciate it a lot.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="third gym training">
-                        </div>
-                        <div class="right-content">
-                            <h4>Basic Muscle Course</h4>
-                            <p>Credit goes to <a rel="nofollow" href="https://www.pexels.com" target="_blank">Pexels website</a> for images and video background used in this HTML template.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6">
-                <ul class="features-items">
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="fourth muscle">
-                        </div>
-                        <div class="right-content">
-                            <h4>Advanced Muscle Course</h4>
-                            <p>You may want to browse through <a rel="nofollow" href="https://templatemo.com/tag/digital-marketing" target="_parent">Digital Marketing</a> or <a href="https://templatemo.com/tag/corporate">Corporate</a> HTML CSS templates on our website.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="training fifth">
-                        </div>
-                        <div class="right-content">
-                            <h4>Yoga Training</h4>
-                            <p>This template is built on Bootstrap v4.3.1 framework. It is easy to adapt the columns and sections.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                    <li class="feature-item">
-                        <div class="left-icon">
-                            <img src="assets/images/features-first-icon.png" alt="gym training">
-                        </div>
-                        <div class="right-content">
-                            <h4>Body Building Course</h4>
-                            <p>Suspendisse fringilla et nisi et mattis. Curabitur sed finibus nisi. Integer nibh sapien, vehicula et auctor.</p>
-                            <a href="#" class="text-button">Discover More</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <section class="plans__container">
+              <div class="plans">
+                <div class="planItem__container">
+                  <!--Basic plan starts -->
+                  <div class="planItem planItem--basic">
+            
+                    <div class="planItem-card">
+                      <div class="card__header">
+                        <h3>Basic</h3>
+                      </div>
+                      <div class="card__desc">Perfect for beginners. Access to gym during off-peak hours.</div>
+                    </div>
+            
+                    <div class="price">Rs 200<span>/ month</span></div>
+            
+                    <ul class="featureList">
+                      <li>Access during off-peak hours</li>
+                      <li>Use of all gym equipment</li>
+                      <li class="disabled">Group classes</li>
+                      <li class="disabled">Personal trainer</li>
+                      <li class="disabled">Free merchandise</li>
+                    </ul>
+            
+                    <button class="button paln-btn">Get Started</button>
+                  </div>
+                  <!--Basic plan ends -->
+            
+                  <!--Standard plan starts -->
+                  <div class="planItem planItem--standard">
+                    <div class="planItem-card">
+                      <div class="card__header">
+                        <h3>Standard</h3>
+                        <div class="card__label label">Most Popular</div>
+                      </div>
+                      <div class="card__desc">Ideal for regular gym-goers. Full access to the gym and classes.</div>
+                    </div>
+            
+                    <div class="price">Rs 600<span>/ month</span></div>
+            
+                    <ul class="featureList">
+                      <li>Full access during all hours</li>
+                      <li>Use of all gym equipment</li>
+                      <li>Group classes</li>
+                      <li class="disabled">Personal trainer</li>
+                      <li class="disabled">Free merchandise</li>
+                    </ul>
+            
+                    <button class="button paln-btn button--pink">Get Started</button>
+                  </div>
+                  <!--Standard plan ends -->
+            
+                  <!--Premium plan starts -->
+                  <div class="planItem planItem--premium">
+                    <div class="planItem-card">
+                      <div class="card__header">
+                        <h3>Premium</h3>
+                      </div>
+                      <div class="card__desc">For the fitness enthusiast. Includes personal training sessions.</div>
+                    </div>
+            
+                    <div class="price">Rs 900<span>/ month</span></div>
+            
+                    <ul class="featureList">
+                      <li>Full access during all hours</li>
+                      <li>Use of all gym equipment</li>
+                      <li>Group classes</li>
+                      <li>Personal trainer</li>
+                      <li>Free merchandise</li>
+                    </ul>
+            
+                    <button class="button paln-btn  button--white">Get Started</button>
+                  </div>
+                  <!--Premium plan ends -->
+            
+                </div>
+              </div>
+            </section>         
         </div>
     </div>
 </section>
-<!-- ***** Features Item End ***** -->
+
+<div id="paymentPopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h3>Payment Information</h3>
+    <p>Pay Using Easypaisa or JazzCash! <br>
+       on following nuumber:
+       <em><b>0305 8899789</b></em>
+    </p>
+    <form id="paymentForm">
+
+      <label>Upload Payment Screenshot:</label>
+      <input type="file" name="paymentScreenshot" accept="image/*" required>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+
 
 <!-- ***** Call to Action Start ***** -->
 <section class="section" id="call-to-action">
@@ -220,53 +286,46 @@
                 <div class="section-heading">
                     <h2>Our <em>Classes</em></h2>
                     <img src="assets/images/line-dec.png" alt="">
-                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                    <p>Discover a variety of classes to help you reach your fitness goals. From high-intensity workouts to relaxing yoga, we have something for everyone.</p>
                 </div>
             </div>
         </div>
         <div class="row" id="tabs">
             <div class="col-lg-4">
                 <ul>
-                    <li><a href='#tabs-1'><img src="assets/images/tabs-first-icon.png" alt="">First Training Class</a></li>
-                    <li><a href='#tabs-2'><img src="assets/images/tabs-first-icon.png" alt="">Second Training Class</a></a></li>
-                    <li><a href='#tabs-3'><img src="assets/images/tabs-first-icon.png" alt="">Third Training Class</a></a></li>
-                    <li><a href='#tabs-4'><img src="assets/images/tabs-first-icon.png" alt="">Fourth Training Class</a></a></li>
-                    <div class="main-rounded-button"><a href="#">View All Schedules</a></div>
+                    <li><a href='#tabs-1'><img src="assets/images/tabs-first-icon.png" alt="">Cardio Blast</a></li>
+                    <li><a href='#tabs-2'><img src="assets/images/tabs-first-icon.png" alt="">Strength Training</a></a></li>
+                    <li><a href='#tabs-3'><img src="assets/images/tabs-first-icon.png" alt="">Yoga</a></a></li>
+                    <li><a href='#tabs-4'><img src="assets/images/tabs-first-icon.png" alt="">HIIT</a></a></li>
+                    <li><a href='#tabs-5'><img src="assets/images/tabs-first-icon.png" alt="">Pilates</a></a></li>
                 </ul>
             </div>
             <div class="col-lg-8">
                 <section class='tabs-content'>
                     <article id='tabs-1'>
                         <img src="assets/images/training-image-01.jpg" alt="First Class">
-                        <h4>First Training Class</h4>
+                        <h4>Cardio Blast</h4>
                         <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-                        <div class="main-button">
-                            <a href="#">View Schedule</a>
-                        </div>
                     </article>
                     <article id='tabs-2'>
                         <img src="assets/images/training-image-02.jpg" alt="Second Training">
-                        <h4>Second Training Class</h4>
+                        <h4>Strength Training</h4>
                         <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                        <div class="main-button">
-                            <a href="#">View Schedule</a>
-                        </div>
                     </article>
                     <article id='tabs-3'>
                         <img src="assets/images/training-image-03.jpg" alt="Third Class">
-                        <h4>Third Training Class</h4>
+                        <h4>Yoga</h4>
                         <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                        <div class="main-button">
-                            <a href="#">View Schedule</a>
-                        </div>
                     </article>
                     <article id='tabs-4'>
                         <img src="assets/images/training-image-04.jpg" alt="Fourth Training">
-                        <h4>Fourth Training Class</h4>
+                        <h4>HIIt</h4>
                         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
-                        <div class="main-button">
-                            <a href="#">View Schedule</a>
-                        </div>
+                    </article>
+                    <article id='tabs-5'>
+                        <img src="assets/images/training-image-05.jpg" alt="Fifth Training">
+                        <h4>Pilates</h4>
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
                     </article>
                 </section>
             </div>
@@ -282,7 +341,7 @@
                 <div class="section-heading dark-bg">
                     <h2>Classes <em>Schedule</em></h2>
                     <img src="assets/images/line-dec.png" alt="">
-                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                    <p>Discover a variety of classes to help you reach your fitness goals. From high-intensity workouts to relaxing yoga, we have something for everyone.</p>
                 </div>
             </div>
         </div>
@@ -487,6 +546,29 @@
 
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
+<script>
+var popup = document.getElementById("paymentPopup");
+var buttons = document.querySelectorAll(".paln-btn ");
+var span = document.getElementsByClassName("close")[0];
 
+// When the user clicks on any "Get Started" button, open the popup
+buttons.forEach(button => {
+  button.onclick = function() {
+    popup.style.display = "block";
+  }
+});
+
+// When the user clicks on <span> (x), close the popup
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the popup, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>

@@ -21,15 +21,17 @@
         <div class="sidebar-toggler mx-3"><i class="fa-solid fa-bars " onclick="toggleSidebar()"></i></div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&s" alt="" width="50px">
     </div>
-    <a class="profile" href="/admin-profile.html"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
+    <div class="right-nav">
+        <a class="" href="{{route('home')}}">Your Website</a>
+        <a class="profile" href="{{route('profile.edit')}}"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
+    </div>
 </nav>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <ul class="sidebar-link-container">
-        <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href=""> Dashboard </a></li>
+        <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href="{{ route('admin.dashboard') }}"> Dashboard </a></li>
         <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
-        <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{route('profile')}}}"> Profile </a></li>
         <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
         <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
     </ul>
@@ -45,9 +47,8 @@
     </div>
     <div class="offcanvas-body">
         <ul class="sidebar-link-container">
-            <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href=""> Dashboard </a></li>
+            <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href="{{ route('admin.dashboard') }}"> Dashboard </a></li>
             <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
-            <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{route('profile')}}}"> Profile </a></li>
             <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
             <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
         </ul>
@@ -59,13 +60,7 @@
 <div class="content" id="content">
     <div class="">
         <div class="profile-container my-4">
-            <div class="profile-header text-center">
-                <h2>Add New  Trainer</h2>
-
-                <div class="text-center">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" alt="Profile Image" class="profile-photo mt-3">
-                </div>
-            </div>
+            <h3 class="text-center fw-bold">Add New Trainer</h3>
 
             <form class="mt-4"  method="post" action="{{ route('addtrainer') }}"  enctype="multipart/form-data">
                 @csrf

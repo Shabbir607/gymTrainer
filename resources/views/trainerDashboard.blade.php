@@ -20,18 +20,14 @@
         <div class="sidebar-toggler mx-3"><i class="fa-solid fa-bars " onclick="toggleSidebar()"></i></div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&s" alt="" width="50px">
     </div>
-    <div class="right-nav">
-        <a class="" href="{{route('home')}}">Your Website</a>
-        <a class="profile" href="{{route('profile.edit')}}"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
-    </div>
+    <a class="profile" href="{{route('profile.edit')}}"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
 </nav>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <ul class="sidebar-link-container">
-        <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href="{{ route('admin.dashboard') }}"> Dashboard </a></li>
-        <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
-        <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
+        <li class="sidebar-links"><i class="fas fa-calendar icon"></i><a href="{{'schedule'}}"> Class Schedule </a></li>
+        <li class="sidebar-links"><i class="fas fa-chalkboard-teacher icon"></i><a href="{{'class'}}"> Add Classes </a></li>
         <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
     </ul>
 </div>
@@ -46,7 +42,7 @@
     </div>
     <div class="offcanvas-body">
         <ul class="sidebar-link-container">
-            <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href="{{ route('admin.dashboard') }}"> Dashboard </a></li>
+            <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href=""> Dashboard </a></li>
             <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
             <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
             <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
@@ -64,8 +60,9 @@
                 <div class="dash-widget"><!--!-->
                     <div class="dash-widgetimg"><span><i class="fas fa-money-check-alt mr-2" b-1fr6g0feah=""></i></span></div>
                     <div class="dash-widgetcontent">
-                        <h5><span class="counters">Total Users</span></h5>
-                        <h6>23</h6>
+                        <h5><span class="counters">USD 82,505.65</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Total Receivables</h6>
                     </div>
                 </div>
             </div><!--!-->
@@ -73,8 +70,9 @@
                 <div class="dash-widget dash1"><!--!-->
                     <div class="dash-widgetimg"><span><i class="fas fa-money-check-alt mr-2" b-1fr6g0feah=""></i></span></div>
                     <div class="dash-widgetcontent">
-                        <h5><span class="counters">Total Courses</span></h5>
-                        <h6>7</h6>
+                        <h5><span class="counters">USD -148,619.20</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Total Payables</h6>
                     </div>
                 </div>
             </div><!--!-->
@@ -82,8 +80,9 @@
                 <div class="dash-widget dash2"><!--!-->
                     <div class="dash-widgetimg"><span><i class="fas fa-hand-holding-usd mr-2" b-1fr6g0feah=""></i></span></div>
                     <div class="dash-widgetcontent">
-                        <h5><span class="counters">Level 1 Users</span></h5>
-                        <h6>2</h6>
+                        <h5><span class="counters">USD 20,852.50</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Cash In Hand</h6>
                     </div>
                 </div>
             </div>
@@ -94,8 +93,9 @@
                 <div class="dash-widget"><!--!-->
                     <div class="dash-widgetimg"><span><i class="fas fa-stream"></i></span></div>
                     <div class="dash-widgetcontent">
-                        <h5><span class="counters">Level 2 Users</span></h5>
-                        <h6>5</h6>
+                        <h5><span class="counters">USD 36,455.69</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Total Income</h6>
                     </div>
                 </div>
             </div><!--!-->
@@ -103,8 +103,19 @@
                 <div class="dash-widget dash1"><!--!-->
                     <div class="dash-widgetimg"><span><i class="fas fa-comment-dollar"></i></span></div>
                     <div class="dash-widgetcontent">
-                        <h5><span class="counters">Level 3 Users</span></h5>
-                        <h6>14</h6>
+                        <h5><span class="counters">USD 33,300.00</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Total Expenses</h6>
+                    </div>
+                </div>
+            </div><!--!-->
+            <div class="col-lg-4 col-sm-6 col-12">
+                <div class="dash-widget dash2"><!--!-->
+                    <div class="dash-widgetimg"><span><i class="fas fa-receipt"></i></span></div>
+                    <div class="dash-widgetcontent">
+                        <h5><span class="counters">4</span></h5><!--!-->
+                        <!--!-->
+                        <h6>Open Quotations</h6>
                     </div>
                 </div>
             </div>

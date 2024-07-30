@@ -111,5 +111,14 @@ class UserController extends Controller
         // Redirect to the desired location after update
         return back()->with('success', 'Profile updated successfully.');
     }
+    
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login'); // Redirect to the login page or any other page
+    }
 }
 

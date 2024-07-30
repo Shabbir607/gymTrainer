@@ -21,16 +21,82 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{{url('/')}}" class="logo">Training<em> Studio</em></a>
+                    <a href="{{route('login')}}" class="logo">Training<em> Studio</em></a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="{{url('/')}}" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="{{url('/')}}">About</a></li>
+                        <li class="scroll-to-section"><a href="{{route('home')}}" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}">Plans</a></li>
                         <li class="scroll-to-section"><a href="{{url('/')}}">Classes</a></li>
                         <li class="scroll-to-section"><a href="{{url('/')}}">Schedules</a></li>
                         <li class="scroll-to-section"><a href="{{url('/')}}">Contact</a></li>
-                        <li class=""><a href="{{route('profile.edit')}}" class="profile"><img src="{{$user->profile_picture}}" alt=""></a></li>
+                        @if (auth()->check())
+                           @php 
+                           $role_id = auth()->user()->role_id;
+                           @endphp
+                            @switch($role_id)
+                                @case(1)
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @break
+                                @case(2)
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @break
+                                @case(3)
+                              
+                                    <li class="nav-profile">
+                                        <a href="{{ route('profile.edit') }}" class="profile">
+                                            <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
+                                        </a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('class') }}">Dashboard</a>
+                                    </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @break
+                            @endswitch
+                        @else
+                            <li class="main-button">
+                                <a href="{{ route('login') }}">Log In</a>
+                            </li>
+                        @endif
+
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

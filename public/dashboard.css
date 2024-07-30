@@ -14,6 +14,16 @@ body {
       align-items: center;
       gap: 50px;
   }
+  .right-nav {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+  }
+  .right-nav a{
+    font-weight: bold;
+    color: #ed563b;
+    text-decoration: none;
+  }
 
   .sidebar {
     width: 230px;

@@ -27,11 +27,11 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="#features">About</a></li>
-                        <li class="scroll-to-section"><a href="#our-classes">Classes</a></li>
-                        <li class="scroll-to-section"><a href="#schedule">Schedules</a></li>
-                        <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}">About</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}">Classes</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}">Schedules</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/')}}">Contact</a></li>
                         @if (auth()->check())
                             <li class="">
                                 <a href="{{ route('profile.edit') }}" class="profile">
@@ -40,7 +40,7 @@
                             </li>
                         @else
                             <li class="main-button">
-                                <a href="{{ route('login') }}">Sign Up</a>
+                                <a href="{{ route('login') }}">Login</a>
                             </li>
                         @endif
                     </ul>

@@ -21,16 +21,17 @@
         <div class="sidebar-toggler mx-3"><i class="fa-solid fa-bars " onclick="toggleSidebar()"></i></div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&s" alt="" width="50px">
     </div>
-    <a class="profile" href="/admin-profile.html"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
+    <div class="right-nav">
+        <a class="" href="{{route('home')}}">Go To Home Page</a>
+        <a class="profile" href="{{route('profile.edit')}}"><img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" class="profile-img" alt=""></a>
+    </div>
 </nav>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <ul class="sidebar-link-container">
-        <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href=""> Dashboard </a></li>
-        <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
-        <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{route('profile')}}}"> Profile </a></li>
-        <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
+        <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{'schedule'}}"> Class Schedule </a></li>
+        <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'class'}}"> Add Classes </a></li>
         <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
     </ul>
 </div>
@@ -45,55 +46,37 @@
     </div>
     <div class="offcanvas-body">
         <ul class="sidebar-link-container">
-            <li class="sidebar-links"><i class="fas fa-tachometer-alt icon"></i><a href=""> Dashboard </a></li>
-            <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{route('admin.users')}}"> Users </a></li>
-            <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{route('profile')}}}"> Profile </a></li>
-            <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'trainer'}}"> Add  Trainer </a></li>
+            <li class="sidebar-links"><i class="fas fa-calendar icon"></i><a href="{{'schedule'}}"> Class Schedule </a></li>
+            <li class="sidebar-links"><i class="fas fa-chalkboard-teacher icon"></i><a href="{{'class'}}"> Add Classes </a></li>
             <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
         </ul>
     </div>
 </div>
 
 
+
 <!-- Content Section -->
 <div class="content" id="content">
     <div class="">
         <div class="profile-container my-4">
-            <div class="profile-header text-center">
-                <h2>User Profile</h2>
-
-                <div class="text-center">
-                    <img src="https://static.vecteezy.com/system/resources/previews/005/076/592/non_2x/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" alt="Profile Image" class="profile-photo mt-3">
-                </div>
-            </div>
-
+            <h3 class="text-center fw-bold">Add New Class</h3>
             <form class="mt-4">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control custom-input mb-3" id="username" placeholder="Enter username" value="JohnDoe">
+                    <label for="className">Class Name</label>
+                    <input type="text" class="form-control custom-input mb-3" id="className" placeholder="e.g Yoga" >
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control custom-input mb-3" id="email" placeholder="Enter email" value="johndoe@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control custom-input mb-3" id="phone" placeholder="Enter phone number" value="123-456-7890">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control custom-input mb-3" id="password" placeholder="Enter new password">
-                </div>
-                <div class="form-group">
-                    <label for="image">Profile Image</label><br>
+                    <label for="image">Class Image</label><br>
                     <input type="file" class="form-control file custom-input mb-3" id="image">
                 </div>
-                <button type="submit" class="btn btn-custom btn-block text-white mt-3">Update Profile</button>
+                <div class="form-group">
+                    <label for="image">Description</label><br>
+                    <textarea name="description" class="form-control custom-input mb-3" id="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block text-white mt-3">Add Class</button>
             </form>
         </div>
     </div>
-
-
 </div>
 
 
@@ -144,7 +127,6 @@
     window.addEventListener("resize", function () {
         handleResize();
     });
-
 </script>
 
 
