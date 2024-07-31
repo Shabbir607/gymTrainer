@@ -67,15 +67,7 @@
                                     <li class="main-button">
                                         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
                                     </li>
-                                    <li class="main-button">
-                                        <a href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
+                                    
                                 @break
                                 @case(2)
                                     <li class="nav-profile">
@@ -83,15 +75,7 @@
                                             <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
                                         </a>
                                     </li>
-                                    <li class="main-button">
-                                        <a href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
+                                    
                                 @break
                                 @case(3)
                                     <li class="nav-profile">
@@ -102,15 +86,7 @@
                                     <li class="main-button">
                                         <a href="{{ url('class') }}">Dashboard</a>
                                     </li>
-                                    <li class="main-button">
-                                        <a href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
+                                   
                                 @break
                             @endswitch
                         @else
@@ -118,7 +94,6 @@
                                 <a href="{{ route('login') }}">Log In</a>
                             </li>
                         @endif
-
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

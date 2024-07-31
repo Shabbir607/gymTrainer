@@ -32,7 +32,14 @@
     <ul class="sidebar-link-container">
         <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{'schedule'}}"> Class Schedule </a></li>
         <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'class'}}"> Add Classes </a></li>
-        <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
+       
+        <li class="sidebar-links">
+            <i class="fas fa-sign-out-alt icon"></i>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
     </ul>
 </div>
 
@@ -48,7 +55,13 @@
         <ul class="sidebar-link-container">
             <li class="sidebar-links"><i class="fas fa-users icon"></i><a href="{{ 'schedule'}}"> Class Schedule </a></li>
             <li class="sidebar-links"><i class="fa-solid fa-user icon"></i><a href="{{'class'}}"> Add Classes </a></li>
-            <li class="sidebar-links"><i class="fas fa-sign-out-alt icon"></i> <button> Logout </button></li>
+            <li class="sidebar-links">
+            <i class="fas fa-sign-out-alt icon"></i>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
         </ul>
     </div>
 </div>

@@ -89,6 +89,9 @@
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control custom-input" id="password" placeholder="Password">
                         </div>
+                        <div>
+                            <!-- <a href="{{route('password.request')}}">forgot password</a> -->
+                        </div>
                         <button type="submit" class="btn btn-custom btn-block">Login</button>
                         <div class="text-center mt-3">
                             <p>Already a member <a href="{{route('register')}}">Signup</a></p>
