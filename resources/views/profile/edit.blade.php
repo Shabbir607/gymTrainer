@@ -44,15 +44,6 @@
                                     <li class="main-button">
                                         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
                                     </li>
-                                    <li class="main-button">
-                                        <a href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
                                 @break
                                 @case(2)
                                     <li class="nav-profile">
@@ -79,15 +70,6 @@
                                     </li>
                                     <li class="main-button">
                                         <a href="{{ route('class') }}">Dashboard</a>
-                                    </li>
-                                    <li class="main-button">
-                                        <a href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
                                     </li>
                                 @break
                             @endswitch
@@ -141,7 +123,7 @@
 
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control custom-input" name="name" id="username" placeholder="Enter username" value="{{$user->name}}">
+                <input type="text" class="form-control custom-input" name="username" id="username" placeholder="Enter username" value="{{$user->username}}">
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>

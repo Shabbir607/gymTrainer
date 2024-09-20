@@ -75,6 +75,15 @@
                                             <img src="{{ auth()->user()->profile_picture }}" alt="User Profile Picture">
                                         </a>
                                     </li>
+                                    <li class="main-button">
+                                        <a href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
                                     
                                 @break
                                 @case(3)
@@ -271,7 +280,7 @@
                     <li><a href='#tabs-1'><img src="assets/images/tabs-first-icon.png" alt="">Cardio Blast</a></li>
                     <li><a href='#tabs-2'><img src="assets/images/tabs-first-icon.png" alt="">Strength Training</a></a></li>
                     <li><a href='#tabs-3'><img src="assets/images/tabs-first-icon.png" alt="">Yoga</a></a></li>
-                    <li><a href='#tabs-4'><img src="assets/images/tabs-first-icon.png" alt="">HIIT</a></a></li>
+                    <li><a href='#tabs-4'><img src="assets/images/tabs-first-icon.png" alt="">Leg Workout</a></a></li>
                     <li><a href='#tabs-5'><img src="assets/images/tabs-first-icon.png" alt="">Pilates</a></a></li>
                 </ul>
             </div>
@@ -283,22 +292,22 @@
                         <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
                     </article>
                     <article id='tabs-2'>
-                        <img src="assets/images/training-image-02.jpg" alt="Second Training">
+                        <img src="assets/images/slide-01.jpg" alt="Second Training">
                         <h4>Strength Training</h4>
                         <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                     </article>
                     <article id='tabs-3'>
-                        <img src="assets/images/training-image-03.jpg" alt="Third Class">
+                        <img src="assets/images/yoga.jpg" alt="Third Class">
                         <h4>Yoga</h4>
                         <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
                     </article>
                     <article id='tabs-4'>
-                        <img src="assets/images/training-image-04.jpg" alt="Fourth Training">
-                        <h4>HIIt</h4>
+                        <img src="assets/images/leg-workout.jpg" alt="Fourth Training">
+                        <h4>Leg Workout</h4>
                         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
                     </article>
                     <article id='tabs-5'>
-                        <img src="assets/images/training-image-05.jpg" alt="Fifth Training">
+                        <img src="assets/images/pilates.png" alt="Fifth Training">
                         <h4>Pilates</h4>
                         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
                     </article>

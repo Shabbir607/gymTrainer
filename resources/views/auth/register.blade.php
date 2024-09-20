@@ -82,7 +82,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="name" class="form-control custom-input" id="username" placeholder="Enter username">
+                            <input type="text" name="username" class="form-control custom-input" id="username" placeholder="Enter username">
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>

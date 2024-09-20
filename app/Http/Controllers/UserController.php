@@ -48,6 +48,7 @@ class UserController extends Controller
         $image = null;
         if ($request->hasFile('profile_picture')) {
             $image = $request->file('profile_picture');
+           
             $photoPath = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('images'), $photoPath);
             $image = 'images/' . $photoPath; // Store the relative path
@@ -55,7 +56,7 @@ class UserController extends Controller
         }
 
         // Assign the other user data
-        $user->name = $request->input('name');
+        $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->phone = $request->input('phone');
@@ -68,14 +69,7 @@ class UserController extends Controller
     }
     public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->id(),
-            'password' => 'nullable|string|min:8|confirmed',
-            'phone' => 'required|string|max:15',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
+        
         $user = auth()->user();
 
 
@@ -88,6 +82,8 @@ class UserController extends Controller
 
             // Upload new profile picture
             $image = $request->file('profile_picture');
+          
+
             $photoPath = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('images'), $photoPath);
 
@@ -95,7 +91,7 @@ class UserController extends Controller
         }
 
         // Update the user data
-        $user->name = $request->input('name');
+        $user->username = $request->input('username');
         $user->email = $request->input('email');
 
         // Update password only if it's provided
